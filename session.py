@@ -47,6 +47,7 @@ def index():
     # 세션에서 'username'을 가져와 h2 태그로 표시
     if 'username' in session:
         username = session['username']
+        # ip를 구분하기 위하여 각각 .25, .74 서버에 배포하였습니다.
         return f'<h2>192.168.200.74 Hello, {escape(username)}!</h2>'
     else:
         return redirect(url_for('login'))
@@ -64,7 +65,8 @@ def login():
         
         save_session_to_file(session_key)  # 세션 데이터를 파일에 저장
         return resp
-
+        
+    # ip를 구분하기 위하여 각각 .25, .74 서버에 배포하였습니다.
     return '''
         <h3>192.168.200.74</h3>
         <form method="post">
